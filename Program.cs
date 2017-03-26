@@ -18,17 +18,17 @@ namespace UnicamFattoriale
                 {
                     string testoDigitatoDallUtente = Console.ReadLine();
                     if (testoDigitatoDallUtente == "") throw new FormatException(); // praticamente un goto nel catch giusto
-                    if (testoDigitatoDallUtente.ToCharArray()[0] == '-')
-                    {
-                        Console.WriteLine("Non posso calcolare il fattoriale di numeri negativi.\n");
-                        continue;
-                    }
                     //Interpreto il testo come un numero intero
                     int numero = int.Parse(testoDigitatoDallUtente);
                     // a forza di trial-and-error, ho visto che per interi più grandi di 170 il risultato è 'Ôê×'
                     if (numero > 170)
                     {
                         Console.WriteLine("Spiacente, non posso calcolare il fattoriale per questo valore.\n");
+                        continue;
+                    }
+                    else if (numero < 0)
+                    {
+                        Console.WriteLine("Non posso calcolare il fattoriale di numeri negativi.\n");
                         continue;
                     }
                     //Calcolo il fattoriale e lo inserisco in una variabile di tipo double dato che il calcolo può portare a numeri molto grandi
